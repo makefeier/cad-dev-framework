@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="engineering-whiteprint">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>cad-dev-framework · AutoCAD 二次开发思维工具箱</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" id="theme-link" href="assets/themes/engineering-whiteprint.css">
+<link rel="stylesheet" href="assets/animations/animations.css">
+<style>
+  /* ===== 工程白图 · 密集排版微调 ===== */
+  .slide{justify-content:flex-start;padding-top:64px;padding-bottom:56px}
+  .dense h2{font-size:44px;margin-bottom:4px}
+  .dense .lead{font-size:16px;color:var(--text-3);letter-spacing:.02em;margin-bottom:20px}
+  .label{font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--accent-2);text-transform:uppercase;margin-bottom:8px;display:block}
+  .kp{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:2px solid var(--border-strong);border-bottom:none;background:#fff}
+  .kp>div{padding:16px 14px;border-right:1px solid var(--border-strong);border-bottom:2px solid var(--border-strong);background:rgba(255,255,255,.92)}
+  .kp>div:last-child{border-right:none}
+  .kp .num{font-family:var(--font-display);font-size:34px;font-weight:800;color:var(--accent);line-height:1.05}
+  .kp .t{font-size:13px;font-weight:700;color:var(--text-1);margin-top:4px;line-height:1.35}
+  .kp .d{font-size:12px;color:var(--text-3);margin-top:3px;line-height:1.45}
+  .box{background:rgba(255,255,255,.85);border:1.5px solid var(--border-strong);padding:18px 20px}
+  .box-title{font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--accent-2);text-transform:uppercase;margin-bottom:8px;border-bottom:1px solid var(--border);padding-bottom:6px}
+  .box li{font-size:13px;line-height:1.65;color:var(--text-2);margin-bottom:3px}
+  .box li b{color:var(--text-1)}
+  .code{font-family:var(--font-mono);font-size:12px;line-height:1.6;background:#0a1e46;color:#dbe6ff;padding:16px 18px;margin:0;overflow:hidden;white-space:pre-wrap}
+  .code .c{color:#6f8ab8}
+  .code .k{color:#7fc1ff;font-weight:700}
+  .code .s{color:#ffd28a}
+  .tbl{width:100%;border-collapse:collapse;font-size:13px;background:rgba(255,255,255,.88)}
+  .tbl th{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-1);background:var(--surface-2);border:1px solid var(--border-strong);padding:7px 10px;text-align:left}
+  .tbl td{border:1px solid var(--border-strong);padding:7px 10px;color:var(--text-2);line-height:1.5}
+  .tbl td:first-child{font-weight:600;color:var(--text-1);white-space:nowrap}
+  .tag{display:inline-block;font-family:var(--font-mono);font-size:11px;border:1px solid var(--border-strong);padding:2px 8px;margin:2px 4px 2px 0;color:var(--text-2);background:#fff}
+  .tag.hot{color:var(--accent-3);border-color:var(--accent-3);font-weight:700}
+  .warn{color:var(--accent-3);font-weight:700}
+  .ok{color:var(--good);font-weight:700}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .row2{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:stretch}
+  .pname{font-family:var(--font-mono);font-size:15px;font-weight:800;color:var(--accent)}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:10px;border:2px solid var(--border-strong)}
+  .flow>div{padding:10px 12px;border-right:1px solid var(--border-strong);background:#fff}
+  .flow>div:last-child{border-right:none}
+  .flow .n{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--accent-2);font-weight:700}
+  .flow .x{font-size:13px;font-weight:700;color:var(--text-1);margin-top:2px}
+  .flow .s{font-size:11px;color:var(--text-3);line-height:1.4;margin-top:2px}
+</style>
+</head>
+<body data-themes="engineering-whiteprint" data-theme-base="assets/themes/">
+<div class="deck">
+
+  <!-- ============ 1. 封面 · 概览 ============ -->
+  <section class="slide is-active dense" data-title="概览">
+    <p class="kicker">CAD DEV FRAMEWORK · AutoLISP / VLISP / DCL</p>
+    <h2 class="h2">AutoCAD 二次开发 <span style="color:var(--accent-2)">思维工具箱</span></h2>
+    <p class="lead">一个面向 CAD 脚本开发的 Agent Skill —— 基于 15 份本地书籍资料的两轮交叉校审蒸馏，提供从需求到交付的完整开发流程、代码模板、调试方法与部署方案。</p>
+
+    <div class="kp">
+      <div><div class="num">15</div><div class="t">本地资料</div><div class="d">9 份主源 + 6 份辅助/弃用标注</div></div>
+      <div><div class="num">05</div><div class="t">核心心智模型</div><div class="d">领域共识 · 标注证据与局限</div></div>
+      <div><div class="num">10</div><div class="t">决策启发式</div><div class="d">改图元/对话框/路径/分发</div></div>
+      <div><div class="num">05</div><div class="t">代码模式 A~E</div><div class="d">批量修改/取点绘图/entmake/VLA/DCL</div></div>
+      <div><div class="num">12</div><div class="t">高频避坑</div><div class="d">禁调函数/转义/时序/加载</div></div>
+    </div>
+
+    <div class="row2" style="margin-top:22px">
+      <div class="box">
+        <div class="box-title">用途 · Usage</div>
+        <ul style="margin:0;padding-left:18px">
+          <li><b>写新程序</b>：需求 → 先定核心算法，再定交互方式（getpoint / DCL），输出可加载测试代码。</li>
+          <li><b>查错 / 调试</b>：按避坑清单逐项排查：禁调函数、转换遗漏、路径转义、对话框时序。</li>
+          <li><b>改现有程序</b>：用图元数据表驱动模型定位组码与函数链，最小改动落点。</li>
+          <li><b>知识咨询</b>：函数语法 / DCL 属性 / 加载方式直接引用调研文档，标注来源与【推断】边界。</li>
+        </ul>
+      </div>
+      <div class="box">
+        <div class="box-title">触发 · Triggers</div>
+        <p style="margin:0 0 10px;font-size:13px;color:var(--text-2)">命中以下关键词即触发，即使只是「帮我写个改图层的程序」「这个 DCL 报错怎么解决」：</p>
+        <div>
+          <span class="tag hot">CAD 二次开发</span><span class="tag hot">AutoLISP</span><span class="tag hot">VLISP</span><span class="tag hot">DCL</span>
+          <span class="tag">写个 LISP 程序</span><span class="tag">CAD 插件</span><span class="tag">CAD 脚本</span>
+        </div>
+        <p style="margin:12px 0 0;font-size:12px;color:var(--text-3)">不触发：一般性 CAD 使用问题（绘图操作、命令行技巧）。</p>
+      </div>
+    </div>
+
+    <div class="flow">
+      <div><div class="n">FLOW 01</div><div class="x">问题分类</div><div class="s">写 / 查错 / 改 / 咨询</div></div>
+      <div><div class="n">FLOW 02</div><div class="x">开发前核对</div><div class="s">DCL 时序 / 28 函数 / 转义</div></div>
+      <div><div class="n">FLOW 03</div><div class="x">模型驱动输出</div><div class="s">心智模型 + 代码模式</div></div>
+      <div><div class="n">FLOW 04</div><div class="x">交付附注</div><div class="s">加载方式 / 最低版本 / 已知坑</div></div>
+    </div>
+
+    <div class="deck-footer"><span>cad-dev-framework · SKILL 宣传页 01/03</span><span class="slide-number" data-current="1" data-total="3"></span></div>
+    <div class="notes">封面页：点明 Skill 定位——CAD 二次开发思维工具箱。五组核心数字建立信任：15 份资料、5 心智模型、10 启发式、5 代码模式、12 避坑。下方用两栏说明用途四象限与触发词，底部展示 Agentic Protocol 四步工作流。</div>
+  </section>
+
+  <!-- ============ 2. 心智模型 + 代码模式 ============ -->
+  <section class="slide dense" data-title="心智模型与代码模式">
+    <p class="kicker">Chapter 01 · 核心心智模型</p>
+    <h2 class="h2">五个模型 <span style="color:var(--accent-2)">= 领域共识</span></h2>
+    <p class="lead">先让核心逻辑跑通，再套交互壳；一切修改都走数据表，一切分发都声明版本。</p>
+
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:26px">
+      <div class="box" style="padding:14px 14px"><div class="pname">M1 · 分离</div><p style="margin:6px 0 0;font-size:12px;line-height:1.55;color:var(--text-2)">界面/输入与核心逻辑分离：先写纯 LISP 算法可独立测试，再套交互壳。</p></div>
+      <div class="box" style="padding:14px 14px"><div class="pname">M2 · 数据表</div><p style="margin:6px 0 0;font-size:12px;line-height:1.55;color:var(--text-2)">图元 = 组码关联表：改图元走 <b style="color:var(--text-1)">entget → subst → entmod</b>（→entupd）。</p></div>
+      <div class="box" style="padding:14px 14px"><div class="pname">M3 · 模块化</div><p style="margin:6px 0 0;font-size:12px;line-height:1.55;color:var(--text-2)">命令入口 + 子函数分层：<b style="color:var(--text-1)">(defun c:xxx)</b>，局部变量放 `/` 后。</p></div>
+      <div class="box" style="padding:14px 14px"><div class="pname">M4 · 被动壳</div><p style="margin:6px 0 0;font-size:12px;line-height:1.55;color:var(--text-2)">DCL 只描述界面，控制权在 LISP；激活期<b style="color:var(--accent-3)">禁调 28 个图形函数</b>。</p></div>
+      <div class="box" style="padding:14px 14px"><div class="pname">M5 · 部署意识</div><p style="margin:6px 0 0;font-size:12px;line-height:1.55;color:var(--text-2)">第一天就考虑版本、加载方式、分发对象；交付附最低版本与依赖。</p></div>
+    </div>
+
+    <p class="label">Chapter 02 · 代码模式库 A~E（可加载测试）</p>
+    <div class="two">
+      <div>
+        <pre class="code"><span class="c">; A 遍历选择集批量修改字高</span>
+(defun c:cth ( / ss i en ed)
+  (setq ss (ssget '<span class="s">((0 . "TEXT"))</span>))
+  (setq i 0)
+  (repeat (sslength ss)
+    (setq en (ssname ss i) ed (entget en))
+    (setq ed (subst (cons 40 5.0) (assoc 40 ed) ed))
+    (entmod ed)
+    (setq i (1+ i)))
+  (princ))</pre>
+        <pre class="code" style="margin-top:14px"><span class="c">; C entmake 直接建图元 / D VLA 对象</span>
+(entmake (list '(0 . "LINE") (cons 10 p1) (cons 11 p2)))
+(vl-load-com)
+(setq ms (vla-get-ModelSpace
+  (vla-get-ActiveDocument (vlax-get-acad-object))))
+(vla-addCircle ms (vlax-3d-point p) 5.0)</pre>
+      </div>
+      <div>
+        <pre class="code"><span class="c">; B 交互取点 + polar 参数化绘图</span>
+(setq p1 (getpoint <span class="s">"\n指定起点: "</span>))
+(setq p2 (getpoint p1 <span class="s">"\n指定终点: "</span>))
+(setq ang (angle p1 p2) len (distance p1 p2))
+(setq p3 (polar p1 ang (/ len 2)))
+(command <span class="s">"line"</span> p1 p2 <span class="s">""</span>)</pre>
+        <pre class="code" style="margin-top:14px"><span class="c">; E DCL 对话框标准骨架（dia5a 型）</span>
+(defun dcl_dia5a ()
+  (setq dcl_id (load_dialog <span class="s">"dia5a"</span>))
+  (new_dialog <span class="s">"dia5a"</span> dcl_id)
+  (set_tile <span class="s">"edit_p"</span> (rtos (getvar <span class="s">"plinewid"</span>)))
+  (action_tile <span class="s">"accept"</span>
+    <span class="s">"(ok_dia5a)(done_dialog 1)"</span>)
+  (start_dialog)
+  (unload_dialog dcl_id))</pre>
+      </div>
+    </div>
+
+    <div class="deck-footer"><span>cad-dev-framework · 心智模型 + 代码模式 02/03</span><span class="slide-number" data-current="2" data-total="3"></span></div>
+    <div class="notes">本页密集呈现两个核心资产。上部五个心智模型卡片均有一句话总结与证据支撑；下部代码模式库 A~E 覆盖最常用五类任务：批量修改图元、交互参数化绘图、entmake 直建、VLA 对象、DCL 对话框骨架。所有代码均可直接加载测试。</div>
+  </section>
+
+  <!-- ============ 3. 启发式 + 避坑 + 流派 + 边界 ============ -->
+  <section class="slide dense" data-title="实战决策与避坑">
+    <p class="kicker">Chapter 03 · 实战决策 · 避坑 · 边界</p>
+    <h2 class="h2">拿来即用的 <span style="color:var(--accent-2)">决策清单</span></h2>
+    <p class="lead">十条决策启发式覆盖日常开发的高频岔路口，配合流派对比与诚实边界，避免在旧资料时代语境下盲目套用。</p>
+
+    <div class="row2">
+      <div class="box">
+        <div class="box-title">决策启发式 · 10 条</div>
+        <ul style="margin:0;padding-left:18px">
+          <li><b>改图元属性</b>：entget → subst → entmod →（复杂图元）entupd 刷新。</li>
+          <li><b>做对话框</b>：先 VIEWDCL 预览布局 → 写 LISP 控制 → load 联调。</li>
+          <li><b>激活期</b>：禁调 command/entmake/ssget/getpoint 等 28 个函数，图形操作放 done_dialog 后。</li>
+          <li><b>DCL 取值</b>：set_tile/get_tile 只走字符串——整数 itoa、实数 rtos、回转 atoi/atof。</li>
+          <li><b>路径字符串</b>：反斜杠转义 <span class="mono">D:\\lisp</span>；load_dialog 失败返回 -1。</li>
+          <li><b>用 command</b>：先 <span class="mono">(setvar "cmdecho" 0)</span> 抑制回显，结束恢复，(princ) 收尾。</li>
+          <li><b>写 DCL</b>：对象与属性小写、赋值以 <span class="mono">;</span> 结尾、key 唯一大小写敏感。</li>
+          <li><b>选绘图方式</b>：简单交互用 command；批量/稳定用 entmake/VLA；可读性用 VLA。</li>
+          <li><b>遍历选择集</b>：ssget 带过滤表 <span class="mono">'((0 . "TEXT"))</span>；repeat + ssname + sslength。</li>
+          <li><b>分发程序</b>：源码 LSP + 打包 VLX 双通道；常驻用 acaddoc.lsp，低频用 APPLOAD。</li>
+        </ul>
+      </div>
+      <div>
+        <div class="box" style="margin-bottom:16px">
+          <div class="box-title">流派对比 · 分歧如实呈现</div>
+          <table class="tbl">
+            <tr><th style="width:96px">分歧点</th><th>派系 A</th><th>派系 B</th><th>处理</th></tr>
+            <tr><td>绘图路线</td><td>command 直观</td><td>entmake/ActiveX 稳定</td><td>双轨提供</td></tr>
+            <tr><td>acad.lsp</td><td>0 仅首图加载</td><td>1 每文档加载</td><td>按部署选</td></tr>
+            <tr><td>思考法</td><td>DCL 优先</td><td>LISP 优先</td><td>新手 LISP 优先</td></tr>
+          </table>
+        </div>
+        <div class="box">
+          <div class="box-title">避坑 Top 6</div>
+          <ul style="margin:0;padding-left:18px">
+            <li><span class="warn">DCL 激活期禁调</span> 28 函数 → 「AutoCAD 拒绝的函数」。</li>
+            <li>new_dialog 后漏 start_dialog → 对话框失控。</li>
+            <li>mode_tile 0/1 反直觉：0=恢复作用、1=禁用。</li>
+            <li>action_tile 多表达式须拼成<b>一个字符串</b>，内嵌变量 <span class="mono">\"</span> 转义。</li>
+            <li>路径反斜杠不转义（<span class="mono">D:\lisp</span> 应为 <span class="mono">D:\\lisp</span>）。</li>
+            <li>初学者严禁修改官方 BASE.DCL；语法错误查工作目录 ACAD.DCE。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="box" style="margin-top:16px">
+      <div class="box-title">诚实边界 · Honest Boundaries</div>
+      <p style="margin:0;font-size:13px;line-height:1.7;color:var(--text-2)">基于 R13/2000 时代书籍提炼：组码/系统变量未全量收录需查官方帮助；CHM 个别页标题与正文不一致以正文为准；部分条目为语义推断已标注【推断】；现代 CAD（2004+）行为差异需实测。调研文档见 <span class="mono">references/research/</span>（01 方法论 / 02 语言核心 / 03 DCL / 04 实战模式 / 05 坑与工具链）。</p>
+    </div>
+
+    <div class="deck-footer"><span>cad-dev-framework · 决策 · 避坑 · 边界 03/03</span><span class="slide-number" data-current="3" data-total="3"></span></div>
+    <div class="notes">尾页是「实战翻车预防手册」：左栏十条决策启发式覆盖改图元、对话框、路径、绘图路线、分发五大高频岔路；右上流派对比表把资料分歧如实呈现；右下六条避坑覆盖最常踩的坑。底部诚实边界提醒资料时代局限，让使用者在关键场景回到官方帮助核实。</div>
+  </section>
+
+</div>
+<script src="assets/runtime.js"></script>
+</body>
+</html>

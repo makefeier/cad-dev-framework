@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>cad-dev-framework banner</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1200px;height:630px;overflow:hidden;background:
+    repeating-linear-gradient(0deg,rgba(10,30,70,.08) 0 1px,transparent 1px 40px),
+    repeating-linear-gradient(90deg,rgba(10,30,70,.08) 0 1px,transparent 1px 40px),
+    #ffffff;font-family:'Segoe UI','Microsoft YaHei',sans-serif;color:#0a1e46}
+  .wrap{padding:54px 64px 44px;height:100%;display:flex;flex-direction:column}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
+  .brand{font-family:'Consolas','Courier New',monospace;font-size:16px;letter-spacing:.22em;color:#1e5ac4;font-weight:700}
+  .badge{font-family:'Consolas',monospace;font-size:13px;border:2px solid #0a1e46;padding:6px 14px;letter-spacing:.08em;font-weight:700}
+  .badge span{color:#c42a10}
+  h1{font-size:58px;line-height:1.08;font-weight:800;letter-spacing:-.01em}
+  h1 .ac{color:#1e5ac4}
+  h1 .rd{color:#c42a10}
+  .sub{font-size:21px;color:#3a4a6a;margin-top:14px;line-height:1.5;max-width:860px}
+  .divider{height:3px;background:#0a1e46;width:120px;margin:26px 0 24px}
+  .stats{display:flex;gap:0;border:2px solid #0a1e46;background:rgba(255,255,255,.9)}
+  .stat{flex:1;padding:16px 10px;border-right:1px solid #0a1e46;text-align:center}
+  .stat:last-child{border-right:none}
+  .stat .n{font-family:'Consolas',monospace;font-size:34px;font-weight:800;color:#1e5ac4;line-height:1}
+  .stat .t{font-size:14px;font-weight:700;margin-top:6px}
+  .stat .d{font-size:11.5px;color:#8090a8;margin-top:3px;line-height:1.35}
+  .bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:auto}
+  .flow{display:flex;gap:10px}
+  .flow span{font-family:'Consolas',monospace;font-size:12.5px;border:1.5px solid #0a1e46;padding:5px 12px;background:#fff;color:#3a4a6a;font-weight:700}
+  .flow span.h{color:#fff;background:#0a1e46;border-color:#0a1e46}
+  .tagline{font-size:14px;color:#8090a8;letter-spacing:.05em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand">CAD-DEV-FRAMEWORK // SKILL</div>
+    <div class="badge">AutoLISP <span>·</span> VLISP <span>·</span> DCL</div>
+  </div>
+  <h1>AutoCAD 二次开发<br><span class="ac">思维工具箱</span> <span class="rd">v1.0</span></h1>
+  <p class="sub">基于 15 份本地书籍资料、两轮交叉校审蒸馏的 Agent Skill：完整开发流程、可加载测试的代码模式、调试方法与部署方案，从需求到交付一步到位。</p>
+  <div class="divider"></div>
+  <div class="stats">
+    <div class="stat"><div class="n">05</div><div class="t">核心心智模型</div><div class="d">分离 / 数据表 / 模块化 / 被动壳 / 部署</div></div>
+    <div class="stat"><div class="n">10</div><div class="t">决策启发式</div><div class="d">改图元 · 对话框 · 路径 · 分发</div></div>
+    <div class="stat"><div class="n">A~E</div><div class="t">代码模式库</div><div class="d">批量修改 / 取点绘图 / entmake / VLA / DCL</div></div>
+    <div class="stat"><div class="n">12</div><div class="t">高频避坑</div><div class="d">禁调函数 · 转义 · 时序 · 加载</div></div>
+  </div>
+  <div class="bottom">
+    <div class="flow">
+      <span>分类</span><span>核对</span><span class="h">模型输出</span><span>交付附注</span>
+    </div>
+    <div class="tagline">不凭记忆编造 · 一切修改走数据表 · 一切分发声明版本</div>
+  </div>
+</div>
+</body>
+</html>
